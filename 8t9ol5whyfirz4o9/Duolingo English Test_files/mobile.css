@@ -1,16 +1,19 @@
-/* Фон растягивается на весь экран */
+/* Базовые стили для десктопа */
 body {
     background-image: url("your-background.jpg"); /* замени на свой путь */
-    background-size: cover;      /* Масштабировать под экран */
-    background-repeat: no-repeat; /* Без повторов */
-    background-attachment: fixed; /* Фон фиксируется при скролле */
-    background-position: center;  /* Центрирование */
+    background-size: cover;        /* фон растягивается */
+    background-repeat: no-repeat;  
+    background-attachment: fixed;  /* на десктопе фиксирован */
+    background-position: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Дополнительно для маленьких экранов */
+/* Для смартфонов и планшетов */
 @media (max-width: 768px) {
     body {
-        background-size: contain; /* Если хочешь, чтобы картинка влезала полностью */
-        background-attachment: scroll; /* Лучше для мобильных, чтобы не лагало */
+        background-size: cover;       /* всегда на весь экран */
+        background-attachment: scroll; /* фикс убираем для мобильных */
+        background-position: center; 
     }
 }
