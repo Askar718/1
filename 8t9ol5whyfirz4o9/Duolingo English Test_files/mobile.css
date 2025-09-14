@@ -1,19 +1,27 @@
-/* Базовые стили для десктопа */
-body {
-    background-image: url("your-background.jpg"); /* замени на свой путь */
-    background-size: cover;        /* фон растягивается */
-    background-repeat: no-repeat;  
-    background-attachment: fixed;  /* на десктопе фиксирован */
-    background-position: center;
-    margin: 0;
-    padding: 0;
+/* Фон как отдельный слой */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("your-background.jpg"); /* твой путь */
+    background-size: cover;       /* всегда покрывает экран */
+    background-position: center;  /* центрирование */
+    background-repeat: no-repeat;
+    z-index: -1;                  /* чтобы фон был позади */
 }
 
-/* Для смартфонов и планшетов */
+/* Контент поверх */
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Для смартфонов */
 @media (max-width: 768px) {
-    body {
-        background-size: cover;       /* всегда на весь экран */
-        background-attachment: scroll; /* фикс убираем для мобильных */
-        background-position: center; 
+    .bg {
+        background-size: cover;    /* растягивается */
+        background-attachment: scroll; /* безопаснее для iOS */
     }
 }
