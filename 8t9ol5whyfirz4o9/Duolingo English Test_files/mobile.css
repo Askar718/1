@@ -25,3 +25,11 @@
         background-attachment: scroll; /* безопаснее для iOS */
     }
 }
+/* Фон для смартфонов */
+body {
+    background-image: url("images/bg.jpg"); /* путь к картинке */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll; /* фикс убрали для iOS */
+}
