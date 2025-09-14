@@ -67,3 +67,20 @@
     overflow-x: auto;
   }
 }
+
+@media (max-width: 480px) {
+  ._1muD_ {
+    width: 100% !important;        /* Растянуть по ширине экрана */
+    max-width: 100% !important;    /* Снять ограничения */
+    margin: 0 auto !important;     /* Убрать боковые поля */
+    padding: 10px !important;      /* Добавить отступы внутри */
+    box-sizing: border-box;        /* Чтобы паддинги не ломали ширину */
+  }
+
+  /* Картинки внутри блока */
+  ._1muD_ img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+}
