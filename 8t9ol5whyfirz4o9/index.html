@@ -984,6 +984,11 @@
   <script type="text/javascript" src="./Duolingo English Test_files/analytics(1).js"></script>
 
   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
     .certificate-wrapper {
       max-width: 900px;
       margin: 0 auto;
@@ -992,29 +997,34 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
+    /* Блоки с баллами */
+    .subscores, .integrated-subscores {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    /* Мобильная версия */
     @media (max-width: 768px) {
       .certificate-wrapper {
         padding: 10px;
       }
-      .certificate-wrapper img {
+      .subscores, .integrated-subscores {
+        grid-template-columns: 1fr;   /* карточки в одну колонку */
+      }
+      .footer-columns {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-column {
+        flex: 1 1 100%;
+      }
+      img, svg {
         max-width: 100%;
         height: auto;
       }
-      .certificate-wrapper h1,
-      .certificate-wrapper h2,
-      .certificate-wrapper h3,
-      .certificate-wrapper p {
-        word-wrap: break-word;
+      h1, h2, h3, p, span, li {
         font-size: 95%;
-      }
-      .certificate-wrapper ._2oOJ9 {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .certificate-wrapper ._3-ZzQ {
-        flex: 1 1 45%;
-        text-align: center;
+        word-wrap: break-word;
       }
     }
   </style>
