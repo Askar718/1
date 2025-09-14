@@ -10457,3 +10457,45 @@ not screen {
 .grecaptcha-badge {
     visibility: hidden
 }
+/* Общая адаптация */
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden; /* убираем горизонтальный скролл */
+}
+
+/* Все картинки и svg вписываются */
+img, svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Контейнер сертификата */
+.certificate-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Карточки с баллами */
+.subscores, .integrated-subscores {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* две колонки на планшете */
+  gap: 10px;
+}
+
+/* На телефонах — всё в одну колонку */
+@media (max-width: 768px) {
+  .subscores, .integrated-subscores {
+    grid-template-columns: 1fr;
+  }
+  .footer-columns {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-column {
+    flex: 1 1 100%;
+  }
+}
