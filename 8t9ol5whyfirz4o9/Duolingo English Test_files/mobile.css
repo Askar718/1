@@ -1,51 +1,80 @@
-/* Фон как отдельный слой */
-.bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("your-background.jpg"); /* твой путь */
-    background-size: cover;       /* всегда покрывает экран */
-    background-position: center;  /* центрирование */
-    background-repeat: no-repeat;
-    z-index: -1;                  /* чтобы фон был позади */
-}
+/* =======================
+   mobile.css
+   ======================= */
 
-/* Контент поверх */
-.content {
-    position: relative;
-    z-index: 1;
-}
-
-/* Для смартфонов */
+/* Общие настройки для мобильных устройств */
 @media (max-width: 768px) {
-    .bg {
-        background-size: cover;    /* растягивается */
-        background-attachment: scroll; /* безопаснее для iOS */
-    }
-}
-/* === Фон и вьюпорт на мобильных === */
-@media (max-width: 768px) {
-  /* 1) Корень страницы должен занимать весь экран (динамический вьюпорт iOS) */
-  html, body {
+  html, body, #app, ._1muD_ {
     margin: 0;
     padding: 0;
-    min-height: 100dvh; /* лучше, чем 100vh на iOS */
-  }
-
-  /* 2) Любой элемент с inline-стилем background — растянуть на экран
-     Подойдёт даже если фон задан прямо в <body style="background: ..."> */
-  [style*="background"] {
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-attachment: scroll !important; /* фиксированный фон ломается в iOS */
-    background-size: 100% 100% !important;    /* растянуть по блоку (цвет/градиент ок) */
-  }
-
-  /* 3) На всякий случай: если фон висит не на body, а на обёртке */
-  .bg, .page, .wrapper, .container, #root {
-    min-height: 100dvh;
+    min-height: 100dvh; /* динамическая высота вьюпорта */
     width: 100%;
+  }
+
+  /* Фон контейнера */
+  ._1muD_ {
+    background-color: #ffffff !important;  /* или твой цвет/градиент */
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+
+  /* Текст читаемый */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Центрируем заголовки, меню, футер */
+  header, nav, footer {
+    text-align: center;
+  }
+
+  /* Адаптивные изображения */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Контейнер */
+  .container {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  /* Кнопки и инпуты под пальцы */
+  button, input, select, textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+
+  /* Меню в столбик */
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+/* Специально для очень маленьких экранов */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
   }
 }
