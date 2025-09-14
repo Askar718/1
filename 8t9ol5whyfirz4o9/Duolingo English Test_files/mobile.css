@@ -1,0 +1,33 @@
+```css
+._1muD_ {
+  background-color: #ffffff;
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+```
+
+---
+
+## 🔹 Адаптив (mobile.css)
+
+Теперь в `mobile.css` добавляем медиазапрос:
+
+```css
+/* Для мобильных и планшетов */
+@media (max-width: 768px) {
+  ._1muD_ {
+    background-color: #f0f0f0 !important; /* другой фон */
+    flex-direction: column;               /* блоки в колонку */
+    padding: 20px;                        /* меньше отступ */
+    gap: 10px;                            /* меньше расстояние */
+  }
+}
+
+@media (max-width: 480px) {
+  ._1muD_ {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
