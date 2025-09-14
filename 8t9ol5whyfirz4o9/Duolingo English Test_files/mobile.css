@@ -25,11 +25,27 @@
         background-attachment: scroll; /* безопаснее для iOS */
     }
 }
-/* Фон для смартфонов */
-body {
-    background-image: url("images/bg.jpg"); /* путь к картинке */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: scroll; /* фикс убрали для iOS */
+/* === Фон и вьюпорт на мобильных === */
+@media (max-width: 768px) {
+  /* 1) Корень страницы должен занимать весь экран (динамический вьюпорт iOS) */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100dvh; /* лучше, чем 100vh на iOS */
+  }
+
+  /* 2) Любой элемент с inline-стилем background — растянуть на экран
+     Подойдёт даже если фон задан прямо в <body style="background: ..."> */
+  [style*="background"] {
+    background-repeat: no-repeat !important;
+    background-position: center top !important;
+    background-attachment: scroll !important; /* фиксированный фон ломается в iOS */
+    background-size: 100% 100% !important;    /* растянуть по блоку (цвет/градиент ок) */
+  }
+
+  /* 3) На всякий случай: если фон висит не на body, а на обёртке */
+  .bg, .page, .wrapper, .container, #root {
+    min-height: 100dvh;
+    width: 100%;
+  }
 }
