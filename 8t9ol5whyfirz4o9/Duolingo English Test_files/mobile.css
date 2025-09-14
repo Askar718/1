@@ -67,20 +67,43 @@
     overflow-x: auto;
   }
 }
-
+/* --- Адаптация блока _1muD_ под смартфоны --- */
 @media (max-width: 480px) {
   ._1muD_ {
-    width: 100% !important;        /* Растянуть по ширине экрана */
-    max-width: 100% !important;    /* Снять ограничения */
-    margin: 0 auto !important;     /* Убрать боковые поля */
-    padding: 10px !important;      /* Добавить отступы внутри */
+    width: 100% !important;        /* Растягиваем по ширине экрана */
+    max-width: 100% !important;    /* Убираем ограничения */
+    margin: 0 auto !important;     /* Центрируем и убираем боковые поля */
+    padding: 12px !important;      /* Добавляем внутренние отступы */
     box-sizing: border-box;        /* Чтобы паддинги не ломали ширину */
   }
 
-  /* Картинки внутри блока */
+  /* Изображения внутри блока */
   ._1muD_ img {
     max-width: 100% !important;
     height: auto !important;
     display: block;
+  }
+
+  /* Заголовки */
+  ._1muD_ h1, ._1muD_ h2, ._1muD_ h3 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  /* Текст */
+  ._1muD_ p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Кнопки и поля */
+  ._1muD_ button,
+  ._1muD_ input,
+  ._1muD_ select,
+  ._1muD_ textarea {
+    width: 100% !important;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
