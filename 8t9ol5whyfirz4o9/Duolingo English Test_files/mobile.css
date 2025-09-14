@@ -1,62 +1,16 @@
-/* mobile.css */
-/* Сработает для экранов <= 768px */
+/* Фон растягивается на весь экран */
 body {
-    font-size: 16px;
-    padding: 10px;
-    margin: 0;
-    line-height: 1.5;
+    background-image: url("your-background.jpg"); /* замени на свой путь */
+    background-size: cover;      /* Масштабировать под экран */
+    background-repeat: no-repeat; /* Без повторов */
+    background-attachment: fixed; /* Фон фиксируется при скролле */
+    background-position: center;  /* Центрирование */
 }
 
-/* Центрирование заголовков, навигации и футера */
-header, nav, footer {
-    text-align: center;
-}
-
-/* Адаптивные картинки */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Контейнер на всю ширину */
-.container {
-    width: 100%;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-/* Кнопки и поля ввода под пальцы */
-button, input, select, textarea {
-    width: 100%;
-    font-size: 16px;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-}
-
-/* Навигационное меню в столбик */
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-/* Мелкие экраны (до 480px) */
-@media (max-width: 480px) {
+/* Дополнительно для маленьких экранов */
+@media (max-width: 768px) {
     body {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.2em;
+        background-size: contain; /* Если хочешь, чтобы картинка влезала полностью */
+        background-attachment: scroll; /* Лучше для мобильных, чтобы не лагало */
     }
 }
