@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация на турнир MLBB</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Russo+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Exo 2', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: url('https://wallpapers.com/images/featured/mobile-legends-v0u46grjbqc6h9ga.jpg') center/cover no-repeat fixed;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .logo {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 140px;
+            z-index: 10;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 480px;
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.22),
+                    rgba(191, 219, 254, 0.18));
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.4rem;
+            box-shadow: 0 0 40px rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            animation: fadeIn 0.8s ease;
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.1rem;
+            margin-bottom: 1.1rem;
+            font-family: 'Russo One', system-ui, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #0f172a;
+            text-shadow: 0 2px 4px rgba(15, 23, 42, 0.35);
+        }
+
+        p.subtitle {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #e5e7eb;
+            font-size: 0.98rem;
+            letter-spacing: 0.04em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            color: #000;
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(14px);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.95), rgba(37, 99, 235, 0.95));
+            border: 1px solid rgba(191, 219, 254, 0.9);
+            border-radius: 14px;
+            color: #000;
+            font-size: 1.05rem;
+            font-family: 'Russo One', system-ui, sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+            margin-top: 0.5rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 40px rgba(37, 99, 235, 0.75);
+            opacity: 0.95;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #111827;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .card {
+                padding: 1.6rem 1.4rem;
+                border-radius: 18px;
+                box-shadow: 0 0 24px rgba(15, 23, 42, 0.55);
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p.subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.4rem;
+            }
+
+            label {
+                font-size: 0.9rem;
+            }
+
+            input,
+            select,
+            textarea {
+                font-size: 0.95rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+
+            .logo {
+                top: 12px;
+                left: 12px;
+                width: 96px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Положи сюда свой файл логотипа и назови его logo.png -->
+    <img src="logo.png" alt="Логотип кафедры" class="logo" />
+
+    <div class="card">
+        <h1>Регистрация на турнир MLBB</h1>
+        <p class="subtitle">Собери команду и покажи своё мастерство на арене.</p>
+
+        <form action="send_telegram.php" method="POST">
+            <label for="teamName">Название команды</label>
+            <input type="text" id="teamName" name="team_name" required />
+
+            <label for="group">Группа / Кафедра</label>
+            <input type="text" id="group" name="group" required />
+
+            <label for="contact">Контакты капитана команды (WhatsApp / Telegram)</label>
+            <input type="text" id="contact" name="captain_contact" required />
+
+            <label for="players">ФИО участников</label>
+            <textarea id="players" name="players" rows="4"></textarea>
+
+            <button type="submit">Отправить заявку</button>
+        </form>
+
+        <p class="footer-note">Мы свяжемся с вами после проверки заявки.</p>
+    </div>
+</body>
+
+</html>
