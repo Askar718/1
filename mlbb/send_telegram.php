@@ -1,6 +1,6 @@
 <?php
 // === НАСТРОЙКИ БОТА ===
-$bot_token = '7440333963:AAEGJfQhxkAq6aV9zegomc7V_d4VgryDkB4'; // твой токен
+$bot_token = '8558674326:AAEHoF3fuWbArOWLHWneLBPMrGAMhTXm9rg'; // твой токен
 $chat_id   = '470673760';                                      // твой chat_id (ЛС с тобой)
 
 // === ЧТЕНИЕ ДАННЫХ ИЗ ФОРМЫ ===
@@ -76,3 +76,4 @@ if ($result === false) {
   </div>
 </body>
 </html>
+
