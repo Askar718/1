@@ -188,24 +188,37 @@
         <h1>Регистрация на турнир MLBB</h1>
         <p class="subtitle">Собери команду и покажи своё мастерство на арене.</p>
 
-        <form action="send_telegram.php" method="POST">
-            <label for="teamName">Название команды</label>
-            <input type="text" id="teamName" name="team_name" required />
+        <form action="https://api.web3forms.com/submit" method="POST">
+  <!-- Ключ Web3Forms -->
+  <input type="hidden" name="access_key" value="c2bc2f04-f440-4027-b6e0-47c61fd3a914">
 
-            <label for="group">Группа / Кафедра</label>
-            <input type="text" id="group" name="group" required />
+  <!-- Необязательно, но удобно: тема письма и имя отправителя -->
+  <input type="hidden" name="subject" value="Заявка на турнир MLBB">
+  <input type="hidden" name="from_name" value="MLBB KazNARU">
 
-            <label for="contact">Контакты капитана команды (WhatsApp / Telegram)</label>
-            <input type="text" id="contact" name="captain_contact" required />
+  <!-- Можно добавить redirect после успешной отправки (по желанию) -->
+  <!--
+  <input type="hidden" name="redirect" value="https://ТВОЙ-ДОМЕН/thanks.html">
+  -->
 
-            <label for="players">ФИО участников</label>
-            <textarea id="players" name="players" rows="4"></textarea>
+  <label for="teamName">Название команды</label>
+  <input type="text" id="teamName" name="team_name" required />
 
-            <button type="submit">Отправить заявку</button>
-        </form>
+  <label for="group">Группа / Кафедра</label>
+  <input type="text" id="group" name="group" required />
+
+  <label for="contact">Контакты капитана команды (WhatsApp / Telegram)</label>
+  <input type="text" id="contact" name="captain_contact" required />
+
+  <label for="players">ФИО участников</label>
+  <textarea id="players" name="players" rows="4"></textarea>
+
+  <button type="submit">Отправить заявку</button>
+</form>
 
         <p class="footer-note">Мы свяжемся с вами после проверки заявки.</p>
     </div>
 </body>
+
 
 </html>
