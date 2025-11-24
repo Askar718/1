@@ -3,115 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Регистрация на турнир MLBB</title>
+  <title>Mobile Legends: Bang Bang — Кубок ИТФ 2025</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Russo+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap');
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Exo 2', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     body {
-      background: #020617 url('bg-arena.jpg') center/cover no-repeat fixed;
-      color: #0f172a;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      background: #000 url('bg-arena.jpg') center/cover no-repeat fixed;
+      color: #f9fafb;
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
-    .card {
+    main {
+      backdrop-filter: blur(4px);
+    }
+
+    section {
       width: 100%;
-      max-width: 720px;
-      background: radial-gradient(circle at top left,
-        rgba(59, 130, 246, 0.32),
-        rgba(15, 23, 42, 0.75));
-      background-color: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(26px);
-      border-radius: 32px;
-      padding: 2.4rem 2.8rem 2.2rem;
-      box-shadow: 0 0 40px rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.7);
-      animation: fadeIn 0.8s ease;
-      color: #e5e7eb;
+      padding: 64px 16px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-      margin-bottom: 1.9rem;
+    /* --- HERO --- */
+
+    .hero {
+      background: radial-gradient(circle at center,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.92));
     }
 
-    .logo {
+    .hero-inner {
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 140px;
+      margin: 0 auto 20px auto;
       display: block;
-      width: 96px;
-      flex-shrink: 0;
-      border-radius: 18px;
     }
 
-    .card-header-text {
-      flex: 1;
-    }
-
-    h1 {
-      text-align: left;
-      font-size: 2rem;
-      margin-bottom: 0.6rem;
+    .hero-title-main {
       font-family: 'Russo One', system-ui, sans-serif;
-      font-weight: 400;
+      font-size: 2.4rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fde047; /* жёлтый */
+      text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+      margin-bottom: 10px;
+    }
+
+    .hero-title-sub {
+      font-family: 'Russo One', system-ui, sans-serif;
+      font-size: 2.1rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: #fde047;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+      margin-bottom: 32px;
+    }
+
+    .hero-text {
+      max-width: 950px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-align: justify;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.9);
+    }
+
+    .hero-text p + p {
+      margin-top: 14px;
+    }
+
+    /* --- PRIZES --- */
+
+    .prizes {
+      background: radial-gradient(circle at top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.96));
+    }
+
+    .prizes-inner {
+      text-align: center;
       color: #f9fafb;
-      text-shadow: 0 3px 10px rgba(15,23,42,0.8);
     }
 
-    p.subtitle {
+    .section-title {
+      font-family: 'Russo One', system-ui, sans-serif;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 10px rgba(0,0,0,1);
+    }
+
+    .section-title.blue {
+      color: #38bdf8;
+    }
+
+    .prizes-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .prizes-trophy {
+      width: 220px;
+      max-width: 60%;
+      display: block;
+      margin: 0 auto 16px auto;
+      filter: drop-shadow(0 0 24px rgba(56,189,248,0.9));
+    }
+
+    .prizes-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.9);
+    }
+
+    .accent-yellow {
+      color: #fde047;
+    }
+
+    .accent-blue {
+      color: #38bdf8;
+    }
+
+    .accent-orange {
+      color: #fb923c;
+    }
+
+    /* --- FORM --- */
+
+    .signup {
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.96),
+        rgba(15,23,42,0.96));
+    }
+
+    .signup-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .signup-title {
+      font-family: 'Russo One', system-ui, sans-serif;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #fde047;
+      margin-bottom: 32px;
+      text-shadow: 0 4px 10px rgba(0,0,0,1);
+    }
+
+    form {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .form-row {
+      margin-bottom: 18px;
       text-align: left;
-      margin-bottom: 0;
-      color: #cbd5f5;
-      font-size: 0.98rem;
-      letter-spacing: 0.03em;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.4rem;
-      margin-top: 1rem;
     }
 
     label {
       display: block;
-      margin-bottom: 0.35rem;
-      font-size: 0.9rem;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #e5e7eb;
     }
 
+    label span.req {
+      color: #f97373;
+      font-weight: 700;
+    }
+
     input,
     textarea {
       width: 100%;
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
-      background: rgba(15,23,42,0.7);
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.9);
+      background: rgba(15,23,42,0.8);
       color: #f9fafb;
-      font-size: 1rem;
-      margin-bottom: 1.1rem;
-      backdrop-filter: blur(18px);
+      font-size: 0.98rem;
       outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    textarea {
+      border-radius: 18px;
+      min-height: 120px;
+      resize: vertical;
     }
 
     input::placeholder,
@@ -122,65 +225,44 @@
     input:focus,
     textarea:focus {
       border-color: #38bdf8;
-      box-shadow: 0 0 0 1px rgba(56,189,248,0.6);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.7);
+      background: rgba(15,23,42,0.95);
     }
 
-    button {
+    button[type="submit"] {
+      margin-top: 4px;
       width: 100%;
-      padding: 1rem;
-      background: linear-gradient(135deg, #0ea5e9, #2563eb);
-      border: 1px solid rgba(191,219,254,0.9);
-      border-radius: 18px;
+      padding: 0.95rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(90deg, #ef4444, #f97316);
       color: #0b1120;
-      font-size: 1.05rem;
       font-family: 'Russo One', system-ui, sans-serif;
-      font-weight: 400;
+      font-size: 1.05rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-      margin-top: 0.5rem;
-      box-shadow: 0 12px 32px rgba(37,99,235,0.8);
-      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 32px rgba(248,113,113,0.8);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
     }
 
-    button:hover {
+    button[type="submit"]:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 44px rgba(37,99,235,0.95);
-      opacity: 0.97;
-    }
-
-    .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1.4rem;
-    }
-
-    .footer-note {
-      font-size: 0.85rem;
-      color: #e5e7eb;
-      opacity: 0.9;
-    }
-
-    .trophy {
-      width: 80px;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 18px rgba(56,189,248,0.8));
+      box-shadow: 0 16px 40px rgba(249,115,22,0.95);
+      opacity: 0.96;
     }
 
     .form-status {
-      margin-top: 1rem;
-      font-size: 0.9rem;
+      margin-top: 16px;
+      font-size: 0.92rem;
       display: none;
       text-align: center;
-      border-radius: 12px;
-      padding: 0.6rem 0.75rem;
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
     }
 
     .form-status.visible {
-      display: block;
+      display: inline-block;
     }
 
     .form-status.pending {
@@ -191,163 +273,234 @@
 
     .form-status.success {
       color: #bbf7d0;
-      background: rgba(22,163,74,0.18);
-      border: 1px solid rgba(34,197,94,0.65);
+      background: rgba(22,163,74,0.25);
+      border: 1px solid rgba(34,197,94,0.7);
     }
 
     .form-status.error {
       color: #fecaca;
-      background: rgba(248,113,113,0.14);
-      border: 1px solid rgba(248,113,113,0.6);
+      background: rgba(248,113,113,0.2);
+      border: 1px solid rgba(248,113,113,0.7);
     }
 
-    /* Планшеты */
+    /* --- RESPONSIVE --- */
+
+    @media (max-width: 900px) {
+      .hero-title-main {
+        font-size: 2rem;
+      }
+      .hero-title-sub {
+        font-size: 1.8rem;
+      }
+    }
+
     @media (max-width: 768px) {
-      body {
-        padding: 1.5rem 1.2rem;
-        background-attachment: scroll;
+      section {
+        padding: 48px 16px;
       }
 
-      .card {
-        max-width: 100%;
-        padding: 1.9rem 1.6rem 1.8rem;
-        border-radius: 28px;
+      .hero-logo {
+        width: 120px;
       }
 
-      h1 {
+      .hero-title-main {
+        font-size: 1.7rem;
+        letter-spacing: 0.10em;
+      }
+
+      .hero-title-sub {
+        font-size: 1.5rem;
+        letter-spacing: 0.12em;
+      }
+
+      .hero-text {
+        font-size: 0.95rem;
+      }
+
+      .section-title,
+      .signup-title {
         font-size: 1.7rem;
         letter-spacing: 0.12em;
       }
 
-      .logo {
-        width: 88px;
+      .prizes-trophy {
+        width: 190px;
       }
     }
 
-    /* Телефоны */
     @media (max-width: 480px) {
       body {
-        padding: 1.1rem 0.8rem;
-        align-items: flex-start;
-        justify-content: flex-start;
         background-attachment: scroll;
       }
 
-      .card {
-        padding: 1.4rem 1.2rem 1.6rem;
-        border-radius: 22px;
-        box-shadow: 0 0 24px rgba(15,23,42,0.7);
-        max-width: 100%;
+      section {
+        padding: 36px 14px;
       }
 
-      .card-header {
-        gap: 0.8rem;
-        margin-bottom: 1.2rem;
+      .hero-logo {
+        width: 100px;
       }
 
-      .logo {
-        width: 72px;
+      .hero-title-main {
+        font-size: 1.4rem;
       }
 
-      h1 {
-        font-size: 1.32rem;
-        letter-spacing: 0.09em;
-        line-height: 1.25;
+      .hero-title-sub {
+        font-size: 1.25rem;
       }
 
-      p.subtitle {
+      .hero-text {
         font-size: 0.9rem;
+        text-align: left;
       }
 
-      label {
-        font-size: 0.82rem;
+      .section-title,
+      .signup-title {
+        font-size: 1.45rem;
       }
 
       input,
       textarea {
         font-size: 0.9rem;
-        padding: 0.75rem 0.85rem;
-        margin-bottom: 0.9rem;
       }
 
-      button {
-        font-size: 0.95rem;
-        padding: 0.9rem;
-        letter-spacing: 0.08em;
-      }
-
-      .footer {
-        flex-direction: column-reverse;
-        align-items: center;
-        text-align: center;
-      }
-
-      .trophy {
-        width: 72px;
+      button[type="submit"] {
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="card-header">
-      <!-- Логотип турнира -->
-      <img src="logo.png" alt="Логотип MLBB KazNARU" class="logo" />
-      <div class="card-header-text">
-        <h1>РЕГИСТРАЦИЯ НА ТУРНИР MLBB</h1>
-        <p class="subtitle">Собери команду и покажи своё мастерство на арене.</p>
-      </div>
-    </div>
-
-    <form id="mlbb-form" action="https://api.web3forms.com/submit" method="POST">
-      <!-- Ключ Web3Forms -->
-      <input type="hidden" name="access_key" value="c2bc2f04-f440-4027-b6e0-47c61fd3a914" />
-
-      <!-- Опциональные поля для письма -->
-      <input type="hidden" name="subject" value="Заявка на турнир MLBB" />
-      <input type="hidden" name="from_name" value="MLBB KazNARU" />
-
-      <div class="form-grid">
-        <div>
-          <label for="teamName">Название команды</label>
-          <input type="text" id="teamName" name="team_name" required />
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <img src="logo.png" alt="MLBB KazNARU" class="hero-logo" />
+        <div class="hero-titles">
+          <div class="hero-title-main">MOBILE LEGENDS: BANG BANG</div>
+          <div class="hero-title-sub">— КУБОК ИТФ 2025</div>
         </div>
 
-        <div>
-          <label for="group">Группа / кафедра</label>
-          <input type="text" id="group" name="group" required />
-        </div>
-
-        <div>
-          <label for="contact">Контакты капитана команды (WhatsApp / Telegram)</label>
-          <input type="text" id="contact" name="captain_contact" required />
-        </div>
-
-        <div>
-          <label for="players">ФИО участников</label>
-          <textarea id="players" name="players" rows="4"></textarea>
+        <div class="hero-text">
+          <p>
+            Кафедра энергетики и электротехники КазНАРУ выступает организатором
+            официального турнира по Mobile Legends: Bang Bang 2025. Цель турнира —
+            развитие командной работы, стратегического мышления и цифровых
+            компетенций среди студентов, а также поддержка и укрепление
+            киберспортивной культуры университета.
+          </p>
+          <p>
+            Турнир объединит сильнейших игроков факультета инженерные технологии,
+            предоставив им профессиональные условия соревнований, чёткие регламенты
+            и прозрачное судейство. Участников ждут динамичные матчи, продуманная
+            турнирная сетка и заслуженное признание лучших команд.
+          </p>
+          <p>
+            Турнир направлен не только на определение сильнейшей команды MLBB КазНАРУ,
+            но и на укрепление взаимодействия между студентами, поддержку инициатив
+            и развитие цифровой среды университета.
+          </p>
         </div>
       </div>
+    </section>
 
-      <button type="submit">Отправить заявку</button>
-    </form>
+    <!-- PRIZES -->
+    <section class="prizes">
+      <div class="container prizes-inner">
+        <h2 class="section-title blue">Призы</h2>
+        <div class="prizes-content">
+          <img src="trophy.png" alt="Призовой фонд" class="prizes-trophy" />
 
-    <div id="form-status" class="form-status"></div>
+          <div class="prizes-text">
+            <p>
+              <span class="accent-blue">За 1-е место</span> —
+              <span class="accent-yellow">денежный приз 50&nbsp;000&nbsp;₸.</span>
+            </p>
+            <p style="margin-top: 16px;">
+              <span class="accent-blue">За 2-е и 3-е место</span> —
+              официальный респект от декана факультета,
+              а также сертификаты участников, подтверждающие достижения
+              команды в турнире.
+            </p>
+            <p style="margin-top: 16px;">
+              Дополнительно участников ждут памятные призы,
+              медиа-освещение результатов и возможность заявить о себе
+              в киберспортивном сообществе университета.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="footer">
-      <p class="footer-note">
-        После отправки заявки организаторы свяжутся с капитаном команды.
-      </p>
-      <img src="trophy.png" alt="Призовой фонд турнира" class="trophy" />
-    </div>
-  </div>
+    <!-- SIGNUP -->
+    <section class="signup">
+      <div class="container signup-inner">
+        <h2 class="signup-title">Оставить заявку</h2>
+
+        <form id="mlbb-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms -->
+          <input type="hidden" name="access_key" value="c2bc2f04-f440-4027-b6e0-47c61fd3a914" />
+          <input type="hidden" name="subject" value="Заявка на турнир MLBB" />
+          <input type="hidden" name="from_name" value="MLBB KazNARU" />
+
+          <div class="form-row">
+            <label for="captain">ФИО капитана <span class="req">(обязательно)</span></label>
+            <input
+              type="text"
+              id="captain"
+              name="captain_name"
+              placeholder="Фамилия Имя Отчество"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="contact">Номер (WhatsApp / Telegram) <span class="req">(обязательно)</span></label>
+            <input
+              type="text"
+              id="contact"
+              name="captain_contact"
+              placeholder="+7 ... или @username"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="team">Название команды <span class="req">(обязательно)</span></label>
+            <input
+              type="text"
+              id="team"
+              name="team_name"
+              placeholder="Название команды"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="players">ФИО участников <span class="req">(обязательно)</span></label>
+            <textarea
+              id="players"
+              name="players"
+              placeholder="1) ФИО, никнейм&#10;2) ФИО, никнейм&#10;3) ..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">Отправить</button>
+
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <script>
     const form = document.getElementById('mlbb-form');
     const statusEl = document.getElementById('form-status');
 
     form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // не уходим на страницу Web3Forms
+      e.preventDefault();
 
       statusEl.textContent = 'Отправляем заявку...';
       statusEl.className = 'form-status visible pending';
