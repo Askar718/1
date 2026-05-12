@@ -5,6 +5,34 @@
 html, body {
   max-width: 100vw;
   overflow-x: hidden;
+  width: 100%;
+}
+
+/* Force everything to box-sizing: border-box so padding doesn't overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* The whole content tree must not exceed viewport on small screens.
+   Cover every wrapper between body and the certificate card. */
+@media (max-width: 991px) {
+  #app,
+  ._1muD_,
+  ._290Ib,
+  .v6tRX,
+  ._1L8UI,
+  ._2HG-o,
+  ._3y_wi,
+  .TxR4u,
+  ._3LhaE {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  /* _1L8UI is inline-flex by default — force it to flex so width:100% takes effect */
+  ._1L8UI {
+    display: flex !important;
+  }
 }
 
 /* === certificate card: hard-coded width:900px === */
