@@ -5,9 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Duolingo English Test — Сертификат</title>
 <link rel="shortcut icon" href="https://dy8n3onijof8f.cloudfront.net/static/images/testcenter/favicon-juicy.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet">
+<link rel="preconnect" href="https://dy8n3onijof8f.cloudfront.net" crossorigin>
+<style>
+@font-face {
+  font-display: swap;
+  font-family: "din-round";
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://dy8n3onijof8f.cloudfront.net/static/fonts/din/DINNextRoundedLTPro-Regular.woff2") format("woff2"),
+       url("https://dy8n3onijof8f.cloudfront.net/static/fonts/din/DINNextRoundedLTPro-Regular.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "din-round";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://dy8n3onijof8f.cloudfront.net/static/fonts/din/DINNextRoundedLTPro-Bold.woff2") format("woff2"),
+       url("https://dy8n3onijof8f.cloudfront.net/static/fonts/din/DINNextRoundedLTPro-Bold.woff") format("woff");
+}
+</style>
 <style>
 :root {
   --green: #58cc02;
@@ -21,17 +37,17 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; width: 100%; max-width: 100vw; overflow-x: hidden; }
 body {
-  font-family: "Fredoka", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: var(--ink);
+  font-family: "din-round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #4c4c4c;
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.25;
   font-weight: 500;
 }
 h1, h2, h3, h4, h5, h6, .level, .lbl, .label, .stamp, .footer-grid h4, .lang-pick {
-  font-family: "Fredoka", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "din-round", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
 }
 .footer-grid a { font-weight: 500; }
@@ -39,7 +55,7 @@ h1, h2, h3, h4, h5, h6, .level, .lbl, .label, .stamp, .footer-grid h4, .lang-pic
 .identity-row .name .ru,
 .subscore-box .val,
 .info-grid .label {
-  font-family: "Fredoka", "Nunito", sans-serif;
+  font-family: "din-round", sans-serif;
   font-weight: 700;
 }
 a { color: var(--link); text-decoration: none; }
