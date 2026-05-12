@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Duolingo English Test — Сертификат</title>
 <link rel="shortcut icon" href="https://dy8n3onijof8f.cloudfront.net/static/images/testcenter/favicon-juicy.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet">
 <style>
 :root {
   --green: #58cc02;
@@ -18,13 +21,18 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; width: 100%; max-width: 100vw; overflow-x: hidden; }
 body {
-  font-family: "din-round", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   line-height: 1.4;
+  font-weight: 600;
+}
+h1, h2, h3, h4, h5, h6, .level, .lbl, .label, .stamp, .footer-grid h4, .footer-grid a, .lang-pick, .brand, .mini-brand {
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
 }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -66,6 +74,62 @@ img, svg { max-width: 100%; height: auto; }
   align-items: center;
 }
 .topbar .brand img { height: 28px; width: auto; display: block; }
+
+/* ============ SLIDE-OUT NAV DRAWER ============ */
+.drawer {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: min(85vw, 360px);
+  background: #fff;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform .25s ease-out;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0,0,0,.2);
+  padding: 64px 20px 24px;
+}
+.drawer.open { transform: translateX(0); }
+.drawer .close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px 10px;
+}
+.drawer h4 {
+  margin: 18px 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.drawer ul { list-style: none; margin: 0; padding: 0; }
+.drawer li { margin: 0; }
+.drawer a {
+  display: block;
+  padding: 10px 6px;
+  color: var(--ink-bold);
+  font-size: 15px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+.drawer a:hover { background: #f7f7f7; text-decoration: none; }
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.backdrop.show { opacity: 1; pointer-events: auto; }
 
 /* ============ MAIN WRAP ============ */
 .wrap {
@@ -355,13 +419,43 @@ img, svg { max-width: 100%; height: auto; }
 <body>
 
 <header class="topbar">
-  <button class="menu-btn" aria-label="Меню" type="button">
+  <button class="menu-btn" aria-label="Меню" type="button" onclick="document.getElementById('drawer').classList.add('open');document.getElementById('backdrop').classList.add('show');">
     <span></span><span></span><span></span>
   </button>
   <span class="brand">
     <img src="./Duolingo English Test_files/duo-wordmark.svg" alt="Duolingo English Test">
   </span>
 </header>
+
+<aside id="drawer" class="drawer" aria-label="Навигация">
+  <button class="close-btn" aria-label="Закрыть" type="button" onclick="document.getElementById('drawer').classList.remove('open');document.getElementById('backdrop').classList.remove('show');">&times;</button>
+  <h4>Участникам</h4>
+  <ul>
+    <li><a href="https://certs.duolingo.com/test_takers">Основные сведения</a></li>
+    <li><a href="https://certs.duolingo.com/test_takers/accepting_institutions">Доступные учреждения</a></li>
+    <li><a href="https://certs.duolingo.com/test_takers/scores">Толкование результатов</a></li>
+    <li><a href="https://certs.duolingo.com/prepare">Подготовка</a></li>
+  </ul>
+  <h4>Учреждениям</h4>
+  <ul>
+    <li><a href="https://certs.duolingo.com/institutions/overview">Основные сведения</a></li>
+    <li><a href="https://certs.duolingo.com/institutions/security">Безопасность</a></li>
+    <li><a href="https://certs.duolingo.com/institutions/scores">Толкование результатов</a></li>
+  </ul>
+  <h4>Исследователям</h4>
+  <ul>
+    <li><a href="https://certs.duolingo.com/research">Основные сведения</a></li>
+    <li><a href="https://certs.duolingo.com/research/publications">Публикации</a></li>
+    <li><a href="https://blog.englishtest.duolingo.com/" target="_blank" rel="noopener noreferrer">Блог</a></li>
+  </ul>
+  <h4>Поддержка</h4>
+  <ul>
+    <li><a href="https://testcenter.zendesk.com/hc/ru" target="_blank" rel="noopener noreferrer">Справочный центр</a></li>
+    <li><a href="https://englishtest.duolingo.com/terms_of_service">Условия предоставления услуг</a></li>
+    <li><a href="https://englishtest.duolingo.com/privacy" target="_blank" rel="noopener noreferrer">Конфиденциальность</a></li>
+  </ul>
+</aside>
+<div id="backdrop" class="backdrop" onclick="document.getElementById('drawer').classList.remove('open');this.classList.remove('show');"></div>
 
 <main class="wrap">
   <div class="card">
