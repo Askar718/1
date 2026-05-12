@@ -1,0 +1,113 @@
+/* mobile-fix.css — overrides for broken responsive behavior in the saved Duolingo English Test page.
+   Loaded after main_prod / 1721 / 8944 / 8745 bundles, so these rules win on the cascade. */
+
+/* 1. Kill horizontal scroll at the root */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 2. Every direct child of body must not exceed the viewport */
+body > * {
+  max-width: 100vw;
+}
+
+/* 3. Generic protections for fixed-width Duolingo helpers found in 8745 bundle */
+@media (max-width: 767px) {
+  /* hardcoded pixel-width blocks */
+  ._24OT7,
+  .Cr9rG,
+  ._3ziXj,
+  ._1gM03,
+  ._3HDUa,
+  ._1IiK6,
+  ._4wWMC,
+  .v6tRX,
+  ._1MrfT,
+  ._1vFME,
+  ._3yp8Y {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* SVG / images that overflow */
+  img, svg, picture, video, canvas, iframe {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  /* footer columns: stack instead of side-by-side */
+  .oRbx-,
+  ._1Acy8 {
+    display: block !important;
+  }
+  .oRbx- > div,
+  ._1Acy8 > div {
+    width: 100% !important;
+    margin-bottom: 24px;
+  }
+
+  /* topbar: shrink padding & allow wrap */
+  #topbar .container,
+  body.splash-view #topbar .container {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* default flex containers: allow wrap so children don't push horizontally */
+  ._3dSAx,
+  ._3bcpd,
+  ._2ieYE {
+    flex-wrap: wrap !important;
+  }
+
+  /* generic hero / banner spacing */
+  h1, h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word;
+  }
+  h3 {
+    font-size: 1.2rem !important;
+    line-height: 1.3 !important;
+  }
+  h4 {
+    font-size: 1rem !important;
+  }
+
+  /* big illustration with hardcoded 360px width */
+  .Cr9rG {
+    width: 100% !important;
+    margin: 0 auto 24px auto !important;
+    display: block;
+  }
+}
+
+/* 4. Tablet range (~768-991px) — also constrain anything wider than viewport */
+@media (max-width: 991px) {
+  .v6tRX,
+  ._4wWMC,
+  ._1IiK6,
+  ._3HDUa {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+
+  /* prevent fixed 1080/1224 px content from forcing horizontal scroll */
+  [style*="width:"][style*="px"] {
+    max-width: 100% !important;
+  }
+}
+
+/* 5. Touch-friendly buttons everywhere */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
