@@ -14,10 +14,9 @@
   --muted: #777;
   --border: #e5e5e5;
   --link: #1cb0f6;
-  --bg: #ffffff;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; width: 100%; max-width: 100vw; overflow-x: hidden; }
 body {
   font-family: "din-round", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--ink);
@@ -29,6 +28,7 @@ body {
 }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
+img, svg { max-width: 100%; height: auto; }
 
 /* ============ HEADER BAR ============ */
 .topbar {
@@ -39,6 +39,7 @@ a:hover { text-decoration: underline; }
   background: #fff;
   border-bottom: 1px solid var(--border);
   position: relative;
+  min-height: 64px;
 }
 .topbar .menu-btn {
   position: absolute;
@@ -61,24 +62,16 @@ a:hover { text-decoration: underline; }
   border-radius: 2px;
 }
 .topbar .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--green);
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -.01em;
 }
-.topbar .brand-logo {
-  width: 30px;
-  height: 30px;
-}
+.topbar .brand img { height: 28px; width: auto; display: block; }
 
 /* ============ MAIN WRAP ============ */
 .wrap {
   max-width: 940px;
   margin: 0 auto;
-  padding: 16px 12px;
+  padding: 16px 12px 24px;
 }
 
 /* ============ CERTIFICATE CARD ============ */
@@ -86,42 +79,35 @@ a:hover { text-decoration: underline; }
   background: #fff;
   border-radius: 16px;
   border: 1px solid var(--border);
-  padding: 20px 16px;
+  padding: 18px 16px;
 }
 
-/* cert header: small logo left, OFFICIAL CERTIFICATE right */
+/* cert header: mini wordmark left, OFFICIAL CERTIFICATE right */
 .cert-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
-  gap: 8px;
+  gap: 10px;
 }
-.cert-head .mini-brand {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--green);
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: -.01em;
-}
-.cert-head .mini-brand-logo { width: 18px; height: 18px; flex-shrink: 0; }
+.cert-head .mini-brand img { height: 20px; width: auto; display: block; }
 .cert-head .stamp {
   font-size: 10px;
   font-weight: 700;
   color: var(--muted);
   letter-spacing: .14em;
   text-transform: uppercase;
+  text-align: right;
+  flex-shrink: 0;
 }
 
-/* identity: photo + name row, then info grid */
+/* identity: photo + name in a row */
 .identity-row {
   display: flex;
   gap: 14px;
   align-items: flex-start;
-  padding: 16px 0 12px;
+  padding: 14px 0 12px;
 }
 .identity-row .photo {
   width: 80px;
@@ -136,37 +122,36 @@ a:hover { text-decoration: underline; }
   justify-content: center;
   min-width: 0;
   padding-top: 4px;
+  gap: 2px;
 }
 .identity-row .name .en,
 .identity-row .name .ru {
   font-weight: 800;
-  font-size: 16px;
+  font-size: 17px;
   color: var(--ink-bold);
-  line-height: 1.25;
+  line-height: 1.2;
   word-break: break-word;
 }
 
-/* 2-col info grid */
+/* 2-col info grid: label on top, value below */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 16px;
-  padding-bottom: 18px;
+  gap: 14px 16px;
+  padding: 4px 0 16px;
   border-bottom: 1px solid var(--border);
   font-size: 13px;
 }
-.info-grid .row { display: flex; flex-wrap: wrap; gap: 4px; }
+.info-grid .cell { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .info-grid .label { font-weight: 800; color: var(--ink-bold); }
-.info-grid .value { color: var(--ink); }
+.info-grid .value { color: var(--ink); word-break: break-all; }
 .info-grid a { color: var(--link); word-break: break-all; }
 
 /* ============ SECTIONS ============ */
-.section {
-  padding: 18px 0 0;
-}
+.section { padding: 18px 0 0; }
 .section h3 {
   margin: 0 0 10px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--ink-bold);
 }
@@ -175,47 +160,44 @@ a:hover { text-decoration: underline; }
 .overall-box {
   display: flex;
   align-items: stretch;
-  gap: 14px;
-  padding: 14px;
+  gap: 12px;
+  padding: 12px;
   border: 1px solid var(--border);
   border-radius: 14px;
 }
 .overall-box .ring-wrap {
   flex-shrink: 0;
-  width: 130px;
+  width: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-right: 1px solid var(--border);
-  padding-right: 14px;
+  padding-right: 12px;
 }
-.overall-box .ring-wrap svg { width: 100%; height: auto; max-width: 130px; }
+.overall-box .ring-wrap svg { width: 100%; height: auto; max-width: 110px; display: block; }
 .overall-box .level-info { flex: 1; min-width: 0; }
 .overall-box .level {
   font-weight: 800;
   font-size: 14px;
   color: var(--ink-bold);
   margin-bottom: 8px;
+  line-height: 1.25;
 }
-.overall-box ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+.overall-box ul { list-style: none; margin: 0; padding: 0; }
 .overall-box li {
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
   font-size: 12px;
-  line-height: 1.35;
+  line-height: 1.4;
   color: var(--ink);
 }
 .overall-box li:last-child { margin-bottom: 0; }
 .overall-box li::before {
   content: "";
   display: inline-block;
-  width: 14px; height: 14px;
+  width: 16px; height: 16px;
   flex-shrink: 0;
   margin-top: 1px;
   background: var(--green);
@@ -230,23 +212,26 @@ a:hover { text-decoration: underline; }
 .subscore-box {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 4px;
   padding: 14px 6px;
   border: 1px solid var(--border);
   border-radius: 14px;
   text-align: center;
 }
-.subscore-box .cell { padding: 0 4px; }
+.subscore-box .cell { padding: 0 2px; min-width: 0; }
 .subscore-box .lbl {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .08em;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .06em;
   color: var(--muted);
   text-transform: uppercase;
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .subscore-box .val {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--ink-bold);
   line-height: 1;
@@ -263,7 +248,8 @@ a:hover { text-decoration: underline; }
   text-align: center;
   font-size: 12px;
   color: var(--muted);
-  padding: 18px 0 4px;
+  padding: 18px 4px 4px;
+  line-height: 1.5;
 }
 .verify a { color: var(--link); }
 
@@ -272,37 +258,29 @@ a:hover { text-decoration: underline; }
   background: var(--green);
   color: #fff;
   margin-top: 16px;
-  padding: 32px 24px 24px;
+  padding: 28px 24px 22px;
 }
 .footer-inner { max-width: 940px; margin: 0 auto; }
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px 24px;
+  gap: 28px 24px;
 }
 .footer-grid h4 {
   margin: 0 0 14px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   line-height: 1.15;
 }
-.footer-grid ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+.footer-grid ul { list-style: none; margin: 0; padding: 0; }
 .footer-grid li { margin-bottom: 12px; line-height: 1.25; }
-.footer-grid a {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-}
+.footer-grid a { color: #fff; font-size: 15px; font-weight: 500; }
 .footer-grid a:hover { text-decoration: underline; }
 
 .footer-divider {
   height: 1px;
   background: rgba(255,255,255,.35);
-  margin: 28px 0 18px;
+  margin: 24px 0 16px;
 }
 .footer-bottom {
   display: flex;
@@ -320,47 +298,42 @@ a:hover { text-decoration: underline; }
   color: #fff;
 }
 .lang-pick svg { width: 22px; height: 22px; }
-.socials { display: flex; gap: 12px; align-items: center; }
+.socials { display: flex; gap: 10px; align-items: center; }
 .socials a {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.socials svg { width: 18px; height: 18px; fill: var(--green); }
+.socials svg { width: 16px; height: 16px; fill: var(--green); }
 
 /* huge green block at the very bottom */
 .giant-foot {
   background: var(--green);
-  padding: 28px 24px 36px;
+  padding: 26px 24px 32px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0;
 }
-.giant-foot .gf-logo { width: 36px; height: 36px; }
-.giant-foot .gf-text {
-  color: #fff;
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: -.01em;
-}
+.giant-foot img { height: 38px; width: auto; filter: brightness(0) invert(1); }
 
 /* ============ DESKTOP ENHANCEMENTS ============ */
 @media (min-width: 768px) {
   body { font-size: 15px; }
-  .wrap { padding: 32px 24px; }
+  .topbar { padding: 22px 24px; min-height: 80px; }
+  .topbar .brand img { height: 34px; }
+  .wrap { padding: 32px 24px 40px; }
   .card { padding: 36px 32px; border-radius: 20px; }
-  .cert-head .mini-brand { font-size: 18px; }
-  .cert-head .mini-brand-logo { width: 22px; height: 22px; }
+  .cert-head .mini-brand img { height: 24px; }
   .cert-head .stamp { font-size: 12px; }
-  .identity-row { gap: 20px; padding: 24px 0 16px; }
+  .identity-row { gap: 20px; padding: 22px 0 14px; }
   .identity-row .photo { width: 110px; height: 110px; border-radius: 14px; }
   .identity-row .name .en,
   .identity-row .name .ru { font-size: 22px; }
-  .info-grid { font-size: 14px; padding-bottom: 24px; }
+  .info-grid { font-size: 14px; gap: 14px 24px; padding-bottom: 22px; }
   .section { padding-top: 24px; }
   .section h3 { font-size: 20px; }
   .overall-box { padding: 20px; gap: 24px; }
@@ -369,49 +342,35 @@ a:hover { text-decoration: underline; }
   .overall-box .level { font-size: 18px; }
   .overall-box li { font-size: 14px; }
   .subscore-box { padding: 24px 16px; gap: 16px; }
-  .subscore-box .lbl { font-size: 12px; }
+  .subscore-box .lbl { font-size: 12px; letter-spacing: .1em; }
   .subscore-box .val { font-size: 36px; }
   .subscore-box .hint { font-size: 12px; }
   .verify { font-size: 13px; padding: 24px 0 4px; }
   .footer-green { padding: 56px 32px 32px; }
   .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .topbar { padding: 22px 24px; }
-  .topbar .brand { font-size: 26px; }
-  .topbar .brand-logo { width: 34px; height: 34px; }
+  .giant-foot img { height: 44px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Duolingo bird icon used for inline SVG logos -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="duo-badge" viewBox="0 0 36 36">
-      <!-- green sun-burst badge with white bird -->
-      <path fill="currentColor" d="M27.86 32.05l.96-2.52a1.66 1.66 0 0 1 .72-.86l2.52-.96c.53-.2.98-.58 1.26-1.07.29-.5.39-1.07.3-1.63l-.43-2.66a1.7 1.7 0 0 1 .26-1.27l1.7-2.09a2.66 2.66 0 0 0 0-3.13l-1.7-2.09a1.7 1.7 0 0 1-.26-1.27l.43-2.67a2.65 2.65 0 0 0-1.55-2.84l-2.52-.96a1.66 1.66 0 0 1-.93-.93l-.96-2.52A2.65 2.65 0 0 0 25.15 2.08L22.49 2.51a1.7 1.7 0 0 1-1.27-.25L19.13 0.56a2.66 2.66 0 0 0-3.13 0L13.91 2.26a1.7 1.7 0 0 1-1.26.25L10.0 2.08c-.56-.09-1.14.01-1.63.3-.5.28-.86.74-1.06 1.27L6.34 6.17a1.66 1.66 0 0 1-.93.93L2.89 8.06A2.65 2.65 0 0 0 1.34 10.9l.42 2.66a1.7 1.7 0 0 1-.25 1.27L-.19 16.92a2.66 2.66 0 0 0 0 3.13l1.7 2.09a1.7 1.7 0 0 1 .25 1.27l-.42 2.66a2.65 2.65 0 0 0 1.55 2.84l2.52.96a1.66 1.66 0 0 1 .93.93l.96 2.52a2.65 2.65 0 0 0 2.71 1.56L13 33.45a1.7 1.7 0 0 1 1.27.25l2.09 1.7a2.66 2.66 0 0 0 3.13 0l2.09-1.7c.14-.11.3-.19.47-.23.17-.04.35-.05.52-.02l2.66.43c.56.09 1.14-.02 1.63-.3.5-.28.86-.74 1.06-1.27Z"/>
-    </symbol>
-  </defs>
-</svg>
-
 <header class="topbar">
   <button class="menu-btn" aria-label="Меню" type="button">
     <span></span><span></span><span></span>
   </button>
-  <div class="brand">
-    <img class="brand-logo" alt="" src="https://d35aaqx5ub95lt.cloudfront.net/images/juicy-logo-2.svg">
-    duolingo english test
-  </div>
+  <span class="brand">
+    <img src="./Duolingo English Test_files/duo-wordmark.svg" alt="Duolingo English Test">
+  </span>
 </header>
 
 <main class="wrap">
   <div class="card">
 
     <div class="cert-head">
-      <div class="mini-brand">
-        <img class="mini-brand-logo" alt="" src="https://d35aaqx5ub95lt.cloudfront.net/images/juicy-logo-2.svg">
-        duolingo english test
-      </div>
-      <div class="stamp">OFFICIAL CERTIFICATE</div>
+      <span class="mini-brand">
+        <img src="./Duolingo English Test_files/duo-wordmark.svg" alt="Duolingo English Test">
+      </span>
+      <div class="stamp">OFFICIAL<br>CERTIFICATE</div>
     </div>
 
     <div class="identity-row">
@@ -423,10 +382,10 @@ a:hover { text-decoration: underline; }
     </div>
 
     <div class="info-grid">
-      <div class="row"><span class="label">Date of birth:</span><span class="value">April 21, 1974</span></div>
-      <div class="row"><span class="label">Certificate ID:</span><span class="value">8t9ol5whyfirz2o7</span></div>
-      <div class="row"><span class="label">Test taken:</span><span class="value">September 13, 2025</span></div>
-      <div class="row"><span class="label">Link:</span><a href="https://certsduolingo.online/8t9ol5whyfirz2o7" target="_blank" rel="noopener noreferrer">certsduolingo.online/8t9ol5whyfirz2o7</a></div>
+      <div class="cell"><span class="label">Date of birth:</span><span class="value">April 21, 1974</span></div>
+      <div class="cell"><span class="label">Certificate ID:</span><span class="value">8t9ol5whyfirz2o7</span></div>
+      <div class="cell"><span class="label">Test taken:</span><span class="value">September 13, 2025</span></div>
+      <div class="cell"><span class="label">Link:</span><a href="https://certsduolingo.online/8t9ol5whyfirz2o7" target="_blank" rel="noopener noreferrer">certsduolingo.online/8t9ol5whyfirz2o7</a></div>
     </div>
 
     <section class="section">
@@ -466,13 +425,13 @@ a:hover { text-decoration: underline; }
       <div class="subscore-box">
         <div class="cell"><div class="lbl">PRODUCTION</div><div class="val">116</div><div class="hint">Ability to speak and write</div></div>
         <div class="cell"><div class="lbl">LITERACY</div><div class="val">125</div><div class="hint">Ability to write and read</div></div>
-        <div class="cell"><div class="lbl">COMPREHENSION</div><div class="val">118</div><div class="hint">Ability to read and listen</div></div>
-        <div class="cell"><div class="lbl">CONVERSATION</div><div class="val">120</div><div class="hint">Ability to listen and speak</div></div>
+        <div class="cell"><div class="lbl">COMPRE&shy;HENSION</div><div class="val">118</div><div class="hint">Ability to read and listen</div></div>
+        <div class="cell"><div class="lbl">CONVER&shy;SATION</div><div class="val">120</div><div class="hint">Ability to listen and speak</div></div>
       </div>
     </section>
 
     <div class="verify">
-      Verify this certificate's authenticity at
+      Verify this certificate's authenticity at<br>
       <a href="https://englishtest.duolingo.com/verify" target="_blank" rel="noopener noreferrer">englishtest.duolingo.com/verify</a>
     </div>
 
@@ -553,8 +512,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <section class="giant-foot">
-  <img class="gf-logo" alt="" src="https://d35aaqx5ub95lt.cloudfront.net/images/juicy-logo-2.svg" style="filter: brightness(0) invert(1);">
-  <div class="gf-text">duolingo english test</div>
+  <img src="./Duolingo English Test_files/duo-wordmark.svg" alt="Duolingo English Test">
 </section>
 
 </body>
