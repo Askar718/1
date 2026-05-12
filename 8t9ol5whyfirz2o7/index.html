@@ -99,6 +99,104 @@ img, svg { max-width: 100%; height: auto; }
 }
 .topbar .brand img { height: 28px; width: auto; display: block; }
 
+/* desktop nav inside topbar — hidden on mobile */
+.topbar .desk-nav { display: none; }
+.topbar .desk-cta { display: none; }
+.topbar .desk-nav-item {
+  position: relative;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-bold);
+  cursor: pointer;
+  padding: 10px 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.topbar .desk-nav-item:hover { color: var(--green); }
+.topbar .desk-nav-item .caret {
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  margin-left: 2px;
+}
+.topbar .dropdown {
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+  padding: 6px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity .15s, transform .15s, visibility .15s;
+  z-index: 50;
+}
+.topbar .desk-nav-item:hover .dropdown,
+.topbar .desk-nav-item:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.topbar .dropdown a {
+  display: block;
+  padding: 9px 16px;
+  color: var(--ink-bold);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.topbar .dropdown a:hover { background: #f4f4f4; text-decoration: none; }
+
+.topbar .desk-cta a {
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border-bottom: 4px solid var(--green-dark);
+  display: inline-block;
+}
+.topbar .desk-cta a:hover { text-decoration: none; filter: brightness(1.05); }
+
+/* card action bar — hidden on mobile, shown on desktop */
+.card-actions { display: none; }
+.card-actions .title {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink-bold);
+  margin-right: 18px;
+}
+.card-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  color: var(--link);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 14px;
+}
+.card-actions .btn:hover { text-decoration: underline; }
+.card-actions .btn svg { width: 18px; height: 18px; fill: var(--link); flex-shrink: 0; }
+
 /* ============ SLIDE-OUT NAV DRAWER ============ */
 .drawer {
   position: fixed;
@@ -414,8 +512,37 @@ img, svg { max-width: 100%; height: auto; }
 /* ============ DESKTOP ENHANCEMENTS ============ */
 @media (min-width: 768px) {
   body { font-size: 15px; }
-  .topbar { padding: 22px 24px; min-height: 80px; }
+
+  /* topbar becomes a desktop nav: hide hamburger, show tabs + login button */
+  .topbar {
+    padding: 14px 32px;
+    min-height: 80px;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+  .topbar .menu-btn { display: none; }
+  .topbar .brand { position: static; transform: none; margin-right: auto; }
   .topbar .brand img { height: 34px; }
+  .topbar .desk-nav { display: inline-flex; gap: 24px; }
+  .topbar .desk-cta { display: inline-flex; }
+
+  /* card action bar visible on desktop */
+  .card-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card { padding: 0; }
+  .card > .cert-head,
+  .card > .identity-row,
+  .card > .info-grid,
+  .card > .section,
+  .card > .verify { padding-left: 32px; padding-right: 32px; }
+  .card > .cert-head { padding-top: 28px; }
+  .card > .verify { padding-bottom: 28px; }
   .wrap { padding: 32px 24px 40px; }
   .card { padding: 36px 32px; border-radius: 20px; }
   .cert-head .mini-brand img { height: 24px; }
@@ -452,6 +579,34 @@ img, svg { max-width: 100%; height: auto; }
   <span class="brand">
     <img src="./Duolingo English Test_files/duo-wordmark.svg" alt="Duolingo English Test">
   </span>
+
+  <nav class="desk-nav" aria-label="Главное меню">
+    <span class="desk-nav-item" tabindex="0">УЧАСТНИКАМ<span class="caret"></span>
+      <span class="dropdown">
+        <a href="https://certs.duolingo.com/test_takers">Основные сведения</a>
+        <a href="https://certs.duolingo.com/test_takers/accepting_institutions">Доступные учреждения</a>
+        <a href="https://certs.duolingo.com/test_takers/scores">Толкование результатов</a>
+        <a href="https://certs.duolingo.com/prepare">Подготовка</a>
+      </span>
+    </span>
+    <span class="desk-nav-item" tabindex="0">УЧРЕЖДЕНИЯ<span class="caret"></span>
+      <span class="dropdown">
+        <a href="https://certs.duolingo.com/institutions/overview">Основные сведения</a>
+        <a href="https://certs.duolingo.com/institutions/security">Безопасность</a>
+        <a href="https://certs.duolingo.com/institutions/scores">Толкование результатов</a>
+      </span>
+    </span>
+    <span class="desk-nav-item" tabindex="0">ИССЛЕДОВАТЕЛИ<span class="caret"></span>
+      <span class="dropdown">
+        <a href="https://certs.duolingo.com/research">Основные сведения</a>
+        <a href="https://certs.duolingo.com/research/publications">Публикации</a>
+        <a href="https://blog.englishtest.duolingo.com/" target="_blank" rel="noopener noreferrer">Блог</a>
+      </span>
+    </span>
+  </nav>
+  <span class="desk-cta">
+    <a href="https://englishtest.duolingo.com/login">Личный кабинет</a>
+  </span>
 </header>
 
 <aside id="drawer" class="drawer" aria-label="Навигация">
@@ -486,6 +641,26 @@ img, svg { max-width: 100%; height: auto; }
 
 <main class="wrap">
   <div class="card">
+
+    <div class="card-actions">
+      <span class="title">Сертификат</span>
+      <button class="btn" type="button" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(window.location.href),'_blank')">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 18V10H5.67v8h2.67Zm-1.33-9.2c.85 0 1.54-.7 1.54-1.55a1.55 1.55 0 0 0-3.08 0c0 .85.7 1.55 1.54 1.55ZM18.34 18v-4.4c0-2.4-1.3-3.5-3-3.5-1.38 0-2 .77-2.35 1.3V10h-2.67v8h2.67v-4.46c0-.25.02-.5.1-.69.2-.5.66-1.02 1.43-1.02 1 0 1.4.77 1.4 1.9V18h2.42Z"/></svg>
+        Добавить в LinkedIn
+      </button>
+      <button class="btn" type="button" onclick="window.print()">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3Zm-3 11H8v-5h8v5Zm3-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-1-9H6v4h12V3Z"/></svg>
+        Распечатать
+      </button>
+      <button class="btn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5Zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+        Закрыть доступ
+      </button>
+      <a class="btn" href="https://certsduolingo.online/share/1bc564cc34fd5229cb81cb194b2f77a7" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+        Отправить результат
+      </a>
+    </div>
 
     <div class="cert-head">
       <span class="mini-brand">
