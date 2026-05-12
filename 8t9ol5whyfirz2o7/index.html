@@ -287,23 +287,23 @@ img, svg { max-width: 100%; height: auto; }
 .subscore-box {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  padding: 14px 6px;
+  gap: 2px;
+  padding: 14px 4px;
   border: 1px solid var(--border);
   border-radius: 14px;
   text-align: center;
 }
-.subscore-box .cell { padding: 0 2px; min-width: 0; }
+.subscore-box .cell { padding: 0 1px; min-width: 0; }
 .subscore-box .lbl {
-  font-size: 9px;
+  font-family: "Nunito", -apple-system, sans-serif;
+  font-size: 8px;
   font-weight: 800;
-  letter-spacing: .06em;
+  letter-spacing: 0;
   color: var(--muted);
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  line-height: 1.15;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .subscore-box .val {
   font-size: 24px;
@@ -530,8 +530,8 @@ img, svg { max-width: 100%; height: auto; }
       <div class="subscore-box">
         <div class="cell"><div class="lbl">PRODUCTION</div><div class="val">116</div><div class="hint">Ability to speak and write</div></div>
         <div class="cell"><div class="lbl">LITERACY</div><div class="val">125</div><div class="hint">Ability to write and read</div></div>
-        <div class="cell"><div class="lbl">COMPRE&shy;HENSION</div><div class="val">118</div><div class="hint">Ability to read and listen</div></div>
-        <div class="cell"><div class="lbl">CONVER&shy;SATION</div><div class="val">120</div><div class="hint">Ability to listen and speak</div></div>
+        <div class="cell"><div class="lbl">COMPREHENSION</div><div class="val">118</div><div class="hint">Ability to read and listen</div></div>
+        <div class="cell"><div class="lbl">CONVERSATION</div><div class="val">120</div><div class="hint">Ability to listen and speak</div></div>
       </div>
     </section>
 
