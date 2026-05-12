@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href="https://dy8n3onijof8f.cloudfront.net/static/images/testcenter/favicon-juicy.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet">
 <style>
 :root {
   --green: #58cc02;
@@ -21,18 +21,26 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; width: 100%; max-width: 100vw; overflow-x: hidden; }
 body {
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Fredoka", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 500;
 }
-h1, h2, h3, h4, h5, h6, .level, .lbl, .label, .stamp, .footer-grid h4, .footer-grid a, .lang-pick, .brand, .mini-brand {
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 800;
+h1, h2, h3, h4, h5, h6, .level, .lbl, .label, .stamp, .footer-grid h4, .lang-pick {
+  font-family: "Fredoka", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+}
+.footer-grid a { font-weight: 500; }
+.identity-row .name .en,
+.identity-row .name .ru,
+.subscore-box .val,
+.info-grid .label {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-weight: 700;
 }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -224,28 +232,31 @@ img, svg { max-width: 100%; height: auto; }
 .overall-box {
   display: flex;
   align-items: stretch;
-  gap: 12px;
-  padding: 12px;
+  gap: 10px;
+  padding: 12px 10px;
   border: 1px solid var(--border);
   border-radius: 14px;
 }
 .overall-box .ring-wrap {
   flex-shrink: 0;
-  width: 110px;
+  width: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-right: 1px solid var(--border);
-  padding-right: 12px;
+  padding-right: 8px;
 }
-.overall-box .ring-wrap svg { width: 100%; height: auto; max-width: 110px; display: block; }
+.overall-box .ring-wrap svg { width: 100%; height: auto; max-width: 95px; display: block; }
 .overall-box .level-info { flex: 1; min-width: 0; }
 .overall-box .level {
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 13px;
   color: var(--ink-bold);
-  margin-bottom: 8px;
-  line-height: 1.25;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .overall-box ul { list-style: none; margin: 0; padding: 0; }
 .overall-box li {
