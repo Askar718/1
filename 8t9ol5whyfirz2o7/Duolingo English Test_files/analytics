@@ -1,13 +1,13 @@
 
 function piResponse() {
-		piSetCookie('visitor_id208162', '1060975170', 3650);
-			piSetCookie('visitor_id208162-hash', 'ea5b89880e52766902a7ec5f264edd11a2d41cb29ca999752ed480f102c7c00d43cc807fdd3a2814f0837e29a854f42b2bfa02b3', 3650);
+		piSetCookie('visitor_id208162', '1357670346', 3650);
+			piSetCookie('visitor_id208162-hash', 'c2c62fbd75729ec87e758e0ee03077ed08de664473e201c80ef25d5b6818a6888944566731c33c9dc4edcbfbafad545fb1175eec', 3650);
 		
 		if (document.location.protocol != "https:" || (document.location.protocol == "https:" && true)) {
 		var analytics_link = document.location.protocol + "//" + "go.duolingo.com/analytics?";
-		pi.tracker.visitor_id='1060975170';
+		pi.tracker.visitor_id='1357670346';
 
-				pi.tracker.visitor_id_sign='ea5b89880e52766902a7ec5f264edd11a2d41cb29ca999752ed480f102c7c00d43cc807fdd3a2814f0837e29a854f42b2bfa02b3';
+				pi.tracker.visitor_id_sign='c2c62fbd75729ec87e758e0ee03077ed08de664473e201c80ef25d5b6818a6888944566731c33c9dc4edcbfbafad545fb1175eec';
 		
 				pi.tracker.campaign_id='1262';
 		
