@@ -1002,158 +1002,208 @@
 
 <style id="mobile-fix">
 /* ============================================================
-   MOBILE FIX — добавлено поверх оригинальных стилей
-   Breakpoint: 768px (sm) и 480px (xs)
+   МОБИЛЬНЫЙ ФИЧ — показать сертификат на телефоне
    ============================================================ */
 
-@media screen and (max-width: 960px) {
-  /* Контейнер сертификата — убираем фиксированную ширину 900px */
-  ._3NJix {
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding: 20px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Шапка сертификата (лого + OFFICIAL CERTIFICATE) */
-  ._3KoXT {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-  }
-
-  ._1yBCp {
-    width: 160px !important;
-  }
-
-  /* Блок с фото + данными — из row в column */
-  ._3x3ga {
-    flex-direction: column !important;
-  }
-
-  ._1X8E6 {
-    width: 96px !important;
-    height: 96px !important;
-  }
-
-  /* Данные испытуемого: убираем двухколоночную сетку */
-  .etZl4 {
-    grid-template-columns: 1fr !important;
-  }
-
-  .VSJNg {
-    min-width: 0 !important;
-    height: auto !important;
-    flex-wrap: wrap !important;
-  }
-
-  /* Блок Overall Score */
-  ._3idli {
-    flex-direction: column !important;
-    height: auto !important;
-    align-items: center !important;
-  }
-
-  ._2JU86 {
-    width: 200px !important;
-    border-right: none !important;
-    border-bottom: 2px solid #e5e5e5 !important;
-    padding-bottom: 12px !important;
-    height: auto !important;
-  }
-
-  /* SVG с дугой баллов — делаем адаптивным */
-  ._2JU86 svg {
-    width: 200px !important;
-    height: 160px !important;
-  }
-
-  ._1kP6M {
-    padding: 12px 0 !important;
-    width: 100% !important;
-  }
-
-  /* Описание уровня */
-  .w-jrB {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Individual / Integrated Subscores */
-  ._2oOJ9 {
-    flex-wrap: wrap !important;
-    height: auto !important;
-    padding: 12px !important;
-    gap: 12px !important;
-  }
-
-  ._3-ZzQ {
-    width: calc(50% - 12px) !important;
-    min-width: 100px !important;
-  }
-
-  /* Кнопки действий */
-  ._3towB, ._1w3jz, .AfTBp {
-    margin-left: 0 !important;
-    margin-top: 8px !important;
-  }
-
-  /* Футер навигации */
-  ._4wWMC {
-    width: 95vw !important;
-    box-sizing: border-box !important;
-  }
-
-  .oRbx- {
-    grid-template-columns: 1fr 1fr !important;
-    column-gap: 16px !important;
-  }
-
-  ._3ziXj {
-    margin-right: 0 !important;
-    max-width: 100% !important;
-    margin-bottom: 20px !important;
-  }
-
-  /* Лого в футере */
-  ._2lOwd {
-    width: 160px !important;
-    height: auto !important;
-  }
+/* Убираем горизонтальный скролл глобально */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
 }
 
-@media screen and (max-width: 600px) {
-  ._3NJix {
-    padding: 16px !important;
-    gap: 20px !important;
+@media screen and (max-width: 960px) {
+
+  /* --- Главный контейнер страницы --- */
+  .v6tRX {
+    padding: 0 12px !important;
   }
 
-  /* Subscores — одна колонка на очень маленьких */
-  ._3-ZzQ {
-    width: calc(50% - 8px) !important;
+  /* --- Белая карточка сертификата --- */
+  ._3DBT9 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 16px 0 !important;
+    box-sizing: border-box !important;
   }
 
-  .oRbx- {
-    grid-template-columns: 1fr !important;
+  ._3LhaE {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  /* Убираем горизонтальный скролл */
-  body {
-    overflow-x: hidden !important;
+  /* --- Строка с кнопками (LinkedIn, Печать...) --- */
+  ._3s-x5 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 12px 16px !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Каждая кнопка/ссылка в строке кнопок */
+  ._3s-x5 > button,
+  ._3s-x5 > a {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    font-size: 11px !important;
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
   }
 
   ._3EeFK {
     font-size: 11px !important;
   }
 
-  /* Выпадающее меню в шапке (_921H-) — уже работает через hover,
-     но на мобильном hover нет. Оставляем как есть — это фиксированный HTML */
+  /* --- Контейнер print-area (сам сертификат) --- */
+  ._3NJix {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px 16px !important;
+    box-sizing: border-box !important;
+    gap: 24px !important;
+  }
+
+  /* --- Шапка: лого + OFFICIAL CERTIFICATE --- */
+  ._3KoXT {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding-bottom: 20px !important;
+  }
+
+  ._1yBCp {
+    width: 160px !important;
+    height: auto !important;
+  }
+
+  /* --- Блок фото + данные --- */
+  ._3x3ga {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding-bottom: 20px !important;
+  }
+
+  ._1X8E6 {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .OTMDM {
+    width: 100% !important;
+  }
+
+  /* Поля данных — убираем двухколоночную сетку */
+  .etZl4 {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  .VSJNg {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Длинный URL — переносить */
+  ._16GO7 {
+    word-break: break-all !important;
+    font-size: 14px !important;
+  }
+
+  /* --- Overall Score --- */
+  ._GjP1 {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  ._3idli {
+    flex-direction: column !important;
+    height: auto !important;
+    align-items: center !important;
+    padding: 16px !important;
+  }
+
+  ._2JU86 {
+    width: 200px !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 2px solid #e5e5e5 !important;
+    padding: 0 0 16px 0 !important;
+  }
+
+  ._2JU86 svg {
+    width: 200px !important;
+    height: 170px !important;
+  }
+
+  ._1kP6M {
+    width: 100% !important;
+    padding: 12px 0 0 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Описания уровня */
+  .w-jrB {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .MXncZ {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* --- Individual / Integrated Subscores --- */
+  ._2oOJ9 {
+    flex-wrap: wrap !important;
+    height: auto !important;
+    padding: 12px !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  ._3-ZzQ {
+    width: calc(50% - 16px) !important;
+    min-width: 80px !important;
+  }
+
+  .eMSb- {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+
+  .Z_Ndv {
+    line-height: 1.2 !important;
+  }
+
+  /* --- Заголовки секций --- */
+  .U9vjW {
+    font-size: 18px !important;
+  }
+
+  /* --- Верифкация --- */
+  ._2pXb2 {
+    flex-wrap: wrap !important;
+    font-size: 14px !important;
+    text-align: center !important;
+  }
 }
 
-/* Исправление глобального контейнера — убираем потенциальный overflow */
-#app, body {
-  max-width: 100vw;
-  overflow-x: hidden;
+@media screen and (max-width: 480px) {
+  ._3NJix {
+    padding: 14px 12px !important;
+  }
+
+  ._3-ZzQ {
+    width: calc(50% - 8px) !important;
+  }
+
+  ._3s-x5 > button,
+  ._3s-x5 > a {
+    font-size: 10px !important;
+    padding: 5px 8px !important;
+  }
 }
 </style>
 </head>
